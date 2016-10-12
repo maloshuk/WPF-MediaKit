@@ -35,7 +35,36 @@ namespace Test_Application
             var dlg = new OpenFileDialog();
             var result = dlg.ShowDialog();
             if (result == true)
+            {
                 mediaUriElement.Source = new Uri(dlg.FileName);
+                mediaUriElement.Volume = slrVolume.Value;
+            }
+        }
+
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedText = ((Label) cmbBoxCorrection.SelectedItem).Content.ToString();
+            var corSec  = int.Parse(selectedText);
+
+            mediaUriElement.Start(DateTime.Now.AddSeconds((corSec)));
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+            mediaUriElement.Pause();
+        }
+
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            mediaUriElement.Play();
+        }
+
+        private void slrVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            if (IsLoaded)
+            {
+                mediaUriElement.Volume = slrVolume.Value;                
+            }
         }
     }
 }

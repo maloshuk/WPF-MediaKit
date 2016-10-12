@@ -1,6 +1,7 @@
 ﻿#region Includes
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -146,7 +147,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
     /// It inherits from DispatcherObject to allow easy communication with COM objects
     /// from different apartment thread models.
     /// </summary>
-    public abstract class MediaPlayerBase : WorkDispatcherObject
+    public abstract partial class MediaPlayerBase : WorkDispatcherObject
     {
         [DllImport("user32.dll", SetLastError = false)]
         private static extern IntPtr GetDesktopWindow();
@@ -418,8 +419,14 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                      * for silence and DSHOW_VOLUME_MAX for full volume
                      * so we calculate that here based off an input of 0 of silence and 1.0
                      * for full audio */
-                    int dShowVolume = (int)((1 - value) * DSHOW_VOLUME_SILENCE);
-                    m_basicAudio.put_Volume(dShowVolume);
+
+                    //int dShowVolume = (int)((1 - value) * DSHOW_VOLUME_SILENCE);
+                    //m_basicAudio.put_Volume(dShowVolume);
+                    
+                    /* SM 14.06.2016: sound formula wich is more close to the real world, where value -5000 is almost silence.
+                     percent dependent  */
+                    var vol = (int)(Math.Log10(value * 100) * 5000 - 10000);
+                    m_basicAudio.put_Volume(vol);
                 }
             }
         }
@@ -977,6 +984,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 m_mediaControl.Run();
         }
 
+        
         /// <summary>
         /// Stops the media
         /// </summary>

@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -32,6 +34,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DirectShowLib-2005, Version=2.1.0.23938, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f, processorArchitecture=MSIL">
@@ -68,12 +71,15 @@
     <Compile Include="DirectShow\Controls\D3DRenderer.cs" />
     <Compile Include="DirectShow\Controls\DvdPlayerElement.cs" />
     <Compile Include="DirectShow\Controls\MediaDetectorElement.cs" />
+    <Compile Include="DirectShow\Controls\MediaElementBase.CLOCK.cs" />
     <Compile Include="DirectShow\Controls\MediaElementBase.cs" />
     <Compile Include="DirectShow\Controls\MediaSeekingElement.cs" />
+    <Compile Include="DirectShow\Controls\MediaUriElement.CLOCK.cs" />
     <Compile Include="DirectShow\Controls\MediaUriElement.cs" />
     <Compile Include="DirectShow\Controls\MultimediaUtil.cs" />
     <Compile Include="DirectShow\Controls\ValueConverters.cs" />
     <Compile Include="DirectShow\Controls\VideoCaptureElement.cs" />
+    <Compile Include="DirectShow\MediaPlayers\BaseClasses.CLOCK.cs" />
     <Compile Include="DirectShow\MediaPlayers\BaseClasses.cs" />
     <Compile Include="DirectShow\MediaPlayers\ClassId.cs" />
     <Compile Include="DirectShow\MediaPlayers\DirectShowUtil.cs" />
@@ -110,6 +116,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Effects\DeeperColor.ps" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,6 +125,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="EVRPresenter32.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Assemblies\DirectShowLib-2005.dll" />
     <Content Include="Effects\DeeperColor.fx" />
   </ItemGroup>

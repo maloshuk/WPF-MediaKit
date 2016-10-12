@@ -11,7 +11,7 @@ namespace WPFMediaKit.DirectShow.Controls
     /// inherits from the MediaSeekingElement, so where available, seeking is
     /// also supported.
     /// </summary>
-    public class MediaUriElement : MediaSeekingElement
+    public partial class MediaUriElement : MediaSeekingElement
     {
         /// <summary>
         /// The current MediaUriPlayer
@@ -142,10 +142,10 @@ namespace WPFMediaKit.DirectShow.Controls
 
                 Dispatcher.BeginInvoke((Action) delegate
                 {
-                    if (IsLoaded)
-                        ExecuteMediaState(LoadedBehavior);
-                    //else
-                    //    ExecuteMediaState(UnloadedBehavior);
+                    //if (IsLoaded)
+                    //    ExecuteMediaState(LoadedBehavior);
+                    ////else
+                    ////    ExecuteMediaState(UnloadedBehavior);
                 });
             });
         }

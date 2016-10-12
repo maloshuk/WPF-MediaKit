@@ -26,7 +26,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
     /// <summary>
     /// The MediaUriPlayer plays media files from a given Uri.
     /// </summary>
-    public class MediaUriPlayer : MediaSeekingPlayer
+    public partial class MediaUriPlayer : MediaSeekingPlayer
     {
         /// <summary>
         /// The name of the default audio render.  This is the
@@ -268,6 +268,9 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 /* Creates the GraphBuilder COM object */
                 m_graph = new FilterGraphNoThread() as IGraphBuilder;
 
+                /* set new graph clock */
+                SetNewGraphClock(m_graph);
+
                 if (m_graph == null)
                     throw new Exception("Could not create a graph");
 
@@ -422,7 +425,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
 #endif
                 /* Configure the graph in the base class */
                 SetupFilterGraph(m_graph);
-
+                
                 HasVideo = true;
 
             }

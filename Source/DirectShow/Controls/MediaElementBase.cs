@@ -11,7 +11,7 @@ namespace WPFMediaKit.DirectShow.Controls
     /// making custom media players.  The MediaElement uses the
     /// D3DRenderer class for rendering video
     /// </summary>
-    public abstract class MediaElementBase : D3DRenderer
+    public abstract partial class MediaElementBase : D3DRenderer
     {
         private Window m_currentWindow;
         private bool m_windowHooked;
@@ -546,8 +546,10 @@ namespace WPFMediaKit.DirectShow.Controls
 
         public bool HasInitialized
         {
-            get;
-            protected set;
+            //SM 13.06.2016: the setter in only invoked when EndInit overloaded method called. It never happens if control added after initialization of the hoster window. The setter updates volume and balance, do nothing more. Thus setter can be safely ignored. Return true always.
+
+            get { return true; } 
+            protected set { var vl = value; } 
         }
 
         /// <summary>

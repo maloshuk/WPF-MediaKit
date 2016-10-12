@@ -6,16 +6,29 @@
         xmlns:local="clr-namespace:Test_Application"
         xmlns:controls="clr-namespace:WPFMediaKit.DirectShow.Controls;assembly=WPFMediaKit"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Opacity="0.8" AllowsTransparency="True" WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-        <Button x:Name="btnOpen" Click="btnOpen_Click" Content="Open..."  Padding="4" Margin="4"></Button>
-        <Button x:Name="btnStop" Click="btnStop_Click" Content="Stop" Padding="4" Margin="4"></Button>
+            <Button x:Name="btnOpen" Click="btnOpen_Click" Content="Open..."  Padding="4" Margin="4"></Button>
+            <ComboBox x:Name ="cmbBoxCorrection" Width="48" Margin="0,5" SelectedIndex="3">
+                <Label Content="-10"/>
+                <Label Content="-5"/>
+                <Label Content="-3"/>
+                <Label Content="0"/>
+                <Label Content="+3"/>
+                <Label Content="+5"/>
+                <Label Content="+10"/>
+            </ComboBox>
+            <Button x:Name="btnStart" Click="btnStart_Click" Content="Start" Padding="4" Margin="4"></Button>
+            <Button x:Name="btnPause" Click="btnPause_Click" Content="Pause"  Padding="4" Margin="4"></Button>
+            <Button x:Name="btnPlay" Click="btnPlay_Click" Content="Play"  Padding="4" Margin="4"></Button>
+            <Button x:Name="btnStop" Click="btnStop_Click" Content="Stop" Padding="4" Margin="4"></Button>
+            <Slider x:Name="slrVolume" Width="159" Maximum="1" Value="0.5" ValueChanged="slrVolume_ValueChanged" />
         </StackPanel>
-        <controls:MediaUriElement x:Name="mediaUriElement" Grid.Row="1" Margin="4"></controls:MediaUriElement>
+        <controls:MediaUriElement x:Name="mediaUriElement" Grid.Row="1" Margin="4" LoadedBehavior="Pause"></controls:MediaUriElement>
     </Grid>
 </Window>
