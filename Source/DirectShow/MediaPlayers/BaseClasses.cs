@@ -552,7 +552,8 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
             {
                 case EventCode.Complete:
                     InvokeMediaEnded(null);
-                    StopGraphPollTimer();
+                    /* SM 13.10.2016: Dont stop timer. Overwise graph event will not longer be processed */
+                    // StopGraphPollTimer();  . 
                     break;
                 case EventCode.Paused:
                     break;
