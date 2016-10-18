@@ -8,7 +8,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
     /// The MediaSeekingPlayer adds media seeking functionality to
     /// to the MediaPlayerBase class
     /// </summary>
-    public abstract class MediaSeekingPlayer : MediaPlayerBase
+    public abstract partial class MediaSeekingPlayer : MediaPlayerBase
     {
         /// <summary>
         /// Local cache of the current position
@@ -21,7 +21,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
         private IMediaSeeking m_mediaSeeking;
 
         /// <summary>
-        /// Gets the duration in miliseconds, of the media that is opened
+        /// Gets the duration in 100ns units, of the media that is opened
         /// </summary>
         public virtual long Duration { get; protected set; }
 
@@ -52,7 +52,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
         }
 
         /// <summary>
-        /// Gets or sets the position in miliseconds of the media
+        /// Gets or sets the position of the media in 100ns units
         /// </summary>
         public virtual long MediaPosition
         {

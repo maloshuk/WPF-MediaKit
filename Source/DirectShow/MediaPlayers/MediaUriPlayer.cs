@@ -89,6 +89,8 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 m_sourceUri = value;
 
                 OpenSource();
+                /* SM 14.10.2016 - Set on Pause to draw first frame */
+                Pause();
             }
         }
 
@@ -268,7 +270,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 /* Creates the GraphBuilder COM object */
                 m_graph = new FilterGraphNoThread() as IGraphBuilder;
 
-                /* set new graph clock */
+                /* SM 13.10.2016: set new graph clock */
                 SetNewGraphClock(m_graph);
 
                 if (m_graph == null)

@@ -5,21 +5,21 @@ using System.Text;
 
 namespace WPFMediaKit.DirectShow.Controls
 {
-
-    public partial class MediaElementBase
+    public partial class MediaSeekingElement
     {
         /// <summary>
         /// Starts the media with
         /// </summary>
         public virtual void Start(DateTime syncStartTime)
         {
-            MediaPlayerBase.EnsureThread(DefaultApartmentState);
-            MediaPlayerBase.Dispatcher.BeginInvoke((Action)(delegate
+            MediaSeekingPlayer.EnsureThread(DefaultApartmentState);
+                  MediaSeekingPlayer.Dispatcher.BeginInvoke((Action)(delegate
             {
-                MediaPlayerBase.Start(syncStartTime);
+                MediaSeekingPlayer.Start(syncStartTime);
                 Dispatcher.BeginInvoke(((Action)(() => SetIsPlaying(true))));
             }));
         }
+
 
     }
 }

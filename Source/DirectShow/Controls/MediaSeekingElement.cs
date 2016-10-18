@@ -8,7 +8,7 @@ namespace WPFMediaKit.DirectShow.Controls
     /// The MediaSeekingElement adds media seeking functionality to
     /// the MediaElementBase class.
     /// </summary>
-    public abstract class MediaSeekingElement : MediaElementBase
+    public abstract partial class MediaSeekingElement : MediaElementBase
     {
         /// <summary>
         /// This flag is used to ignore PropertyChangedCallbacks

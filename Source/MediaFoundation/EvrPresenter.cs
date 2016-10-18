@@ -149,12 +149,20 @@ namespace WPFMediaKit.MediaFoundation
 
         protected void Dispose(bool disp)
         {
-            var settings = m_VideoPresenter as IEVRPresenterSettings;
+            try
+            {
+                var settings = m_VideoPresenter as IEVRPresenterSettings;
+                if (settings != null)
+                    settings.RegisterCallback(null);
+            }
+            catch (Exception)
+            {
 
-            if (settings != null)
-                settings.RegisterCallback(null);
-
-            COMUtil.TryFinalRelease(ref m_VideoPresenter);
+            }
+            finally
+            {
+                COMUtil.TryFinalRelease(ref m_VideoPresenter);       
+            }
         }
 
         #endregion

@@ -556,6 +556,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                     // StopGraphPollTimer();  . 
                     break;
                 case EventCode.Paused:
+                    
                     break;
                 default:
                     break;

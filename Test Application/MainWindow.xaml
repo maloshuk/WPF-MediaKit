@@ -30,5 +30,6 @@
             <Slider x:Name="slrVolume" Width="159" Maximum="1" Value="0.5" ValueChanged="slrVolume_ValueChanged" />
         </StackPanel>
         <controls:MediaUriElement x:Name="mediaUriElement" Grid.Row="1" Margin="4" LoadedBehavior="Pause"></controls:MediaUriElement>
+        
     </Grid>
 </Window>
