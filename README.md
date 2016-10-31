@@ -1,6 +1,7 @@
-# WPF MediaKit
+#!!!FORK!!!  WPF MediaKit
 
-Official new home of WPF MediaKit (https://wpfmediakit.codeplex.com/)!
+
+Fork of WPF MediaKit (https://github.com/Sascha-L/WPF-MediaKit)!
 
 What's changed in version 2.0?
 - EVR Presenter uses DXVA2 hardware acceleration (thanks to Siegfried Krüger!)
