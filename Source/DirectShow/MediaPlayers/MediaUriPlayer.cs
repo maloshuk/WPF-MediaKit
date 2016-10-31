@@ -267,6 +267,9 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
 
             try
             {
+                //SM 31.10.2016 throw exception to fall to autobuild graph 
+                throw new Exception(); 
+
                 /* Creates the GraphBuilder COM object */
                 m_graph = new FilterGraphNoThread() as IGraphBuilder;
 
@@ -470,6 +473,10 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
             {
                 /* Creates the GraphBuilder COM object */
                 m_graph = new FilterGraphNoThread() as IGraphBuilder;
+
+
+                /* SM 28.10.2016: set new graph clock */
+                SetNewGraphClock(m_graph);
 
                 if (m_graph == null)
                     throw new Exception("Could not create a graph");
