@@ -373,7 +373,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 catch
                 {
                     // No Audio available
-                    Trace.TraceError("No Audio Device found!");
+                    //Trace.TraceError("No Audio Device found!");
                 }
 
                 IBaseFilter renderer = CreateVideoRenderer(VideoRenderer, m_graph, 2);
@@ -489,7 +489,7 @@ namespace WPFMediaKit.DirectShow.MediaPlayers
                 catch
                 {
                     // No Audio device found
-                    Trace.TraceError("No Audio Device found!");
+                    //Trace.TraceError("No Audio Device found!");
                 }
 
                 IBaseFilter renderer = CreateVideoRenderer(VideoRenderer, m_graph, 2);
